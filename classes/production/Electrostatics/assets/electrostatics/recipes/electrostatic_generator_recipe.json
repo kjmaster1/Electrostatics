@@ -1,0 +1,33 @@
+{
+	"result": {
+		"item": "electrostatics:electrostatic_generator",
+		"data": 0
+	},
+	"pattern": [
+		"ibi",
+		"rfr",
+		"srs"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"r": {
+			"type": "forge:ore_dict",
+			"ore": "itemRubber"
+		},
+		"b": {
+			"type": "forge:ore_dict",
+			"ore": "blockRedstone"
+		},
+		"i": {
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		},
+		"f": {
+			"item": "minecraft:furnace"
+		},
+		"s": {
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	}
+}

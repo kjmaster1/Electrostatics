@@ -1,0 +1,17 @@
+{
+	"result": {
+		"item": "electrostatics:rubber_boots",
+		"data": 0
+	},
+	"pattern": [
+		"r r",
+		"r r"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"r": {
+			"type": "forge:ore_dict",
+			"ore": "itemRubber"
+		}
+	}
+}

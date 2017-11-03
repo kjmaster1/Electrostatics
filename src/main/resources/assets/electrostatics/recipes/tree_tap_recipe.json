@@ -1,0 +1,18 @@
+{
+	"result": {
+		"item": "electrostatics:tree_tap",
+		"data": 0
+	},
+	"pattern": [
+		" i ",
+		"iii",
+		"i  "
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"i": {
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		}
+	}
+}

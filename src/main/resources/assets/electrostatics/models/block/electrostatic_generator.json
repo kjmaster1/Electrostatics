@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "electrostatics:blocks/electrostatic_generator_side",
+    "down": "electrostatics:blocks/electrostatic_generator_bottom",
+    "up": "electrostatics:blocks/electrostatic_generator_top",
+    "east": "electrostatics:blocks/electrostatic_generator_side",
+    "west": "electrostatics:blocks/electrostatic_generator_side",
+    "north": "electrostatics:blocks/electrostatic_generator_front",
+    "south": "electrostatics:blocks/electrostatic_generator_side"
+  }
+}
