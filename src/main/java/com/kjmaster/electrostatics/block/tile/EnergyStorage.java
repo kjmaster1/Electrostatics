@@ -4,7 +4,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.energy.IEnergyStorage;
 
 public class EnergyStorage implements IEnergyStorage {
-
     private int energy;
     private int capacity;
     private int maxReceive;
@@ -18,26 +17,31 @@ public class EnergyStorage implements IEnergyStorage {
 
     void readFromNBT(NBTTagCompound nbt) {
         this.energy = nbt.getInteger("Energy");
+        if (this.energy > this.capacity) {
+            this.energy = this.capacity;
+        }
 
-        if (energy > capacity)
-            energy = capacity;
     }
 
     void writeToNBT(NBTTagCompound nbt) {
-        if (energy < 0)
-            energy = 0;
-        nbt.setInteger("Energy", energy);
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
+
+        nbt.setInteger("Energy", this.energy);
     }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
-        if (energy > capacity)
-            energy = capacity;
+        if (this.energy > capacity) {
+            this.energy = capacity;
+        }
+
     }
 
     public void setMaxTransfer(int maxTransfer) {
-        setMaxReceive(maxTransfer);
-        setMaxExtract(maxTransfer);
+        this.setMaxReceive(maxTransfer);
+        this.setMaxExtract(maxTransfer);
     }
 
     void setMaxReceive(int maxReceive) {
@@ -48,44 +52,44 @@ public class EnergyStorage implements IEnergyStorage {
         this.maxExtract = maxExtract;
     }
 
-    public int getMaxReceive() { return maxReceive; }
+    public int getMaxReceive() {
+        return this.maxReceive;
+    }
 
-    public int getMaxExtract() { return maxExtract; }
+    public int getMaxExtract() {
+        return this.maxExtract;
+    }
 
-    @Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
-        int energyReceived = Math.min(capacity - energy, Math.min(this.maxReceive, maxReceive));
+        int energyReceived = Math.min(this.capacity - this.energy, Math.min(this.maxReceive, maxReceive));
+        if (!simulate) {
+            this.energy += energyReceived;
+        }
 
-        if (!simulate)
-            energy += energyReceived;
         return energyReceived;
     }
 
-    @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
-        int energyExtracted = Math.min(energy, Math.min(this.maxExtract, maxExtract));
+        int energyExtracted = Math.min(this.energy, Math.min(this.maxExtract, maxExtract));
+        if (!simulate) {
+            this.energy -= energyExtracted;
+        }
 
-        if (!simulate)
-            energy -= energyExtracted;
         return energyExtracted;
     }
 
-    @Override
     public int getEnergyStored() {
-        return energy;
+        return this.energy;
     }
 
-    @Override
     public int getMaxEnergyStored() {
-        return capacity;
+        return this.capacity;
     }
 
-    @Override
     public boolean canExtract() {
         return true;
     }
 
-    @Override
     public boolean canReceive() {
         return false;
     }

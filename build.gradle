@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0.0"
+version = "1.0.2"
 group = "com.kjmaster.electrostatics" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "electrostatics"
 
@@ -21,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.0.2529"
+    version = "1.12.2-14.23.2.2611"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -34,6 +34,9 @@ minecraft {
 }
 
 dependencies {
+    compile files(
+            'kjlib-1.0-deobf.jar'
+    )
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

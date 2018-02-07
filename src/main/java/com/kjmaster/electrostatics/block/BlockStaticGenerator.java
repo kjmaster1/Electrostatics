@@ -2,6 +2,7 @@ package com.kjmaster.electrostatics.block;
 
 import com.kjmaster.electrostatics.Electrostatics;
 import com.kjmaster.electrostatics.block.tile.TileStaticGenerator;
+import com.kjmaster.kjlib.common.blocks.BlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -20,21 +21,14 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockStaticGenerator extends Block implements ITileEntityProvider {
+public class BlockStaticGenerator extends BlockBase implements ITileEntityProvider {
 
     private String name;
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
     BlockStaticGenerator(String name, Material material, CreativeTabs tabs, float hardness, float resistance,
                                 String tool, int harvest) {
-        super(material);
-        setRegistryName(name);
-        setUnlocalizedName(name);
-        this.name = name;
-        setHardness(hardness);
-        setResistance(resistance);
-        setCreativeTab(tabs);
-        setHarvestLevel(tool, harvest);
+        super(name, material, tabs, hardness, resistance, tool, harvest);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

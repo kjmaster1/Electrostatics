@@ -26,7 +26,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
-@Mod(modid = Electrostatics.MODID, version = Electrostatics.VERSION)
+@Mod(modid = Electrostatics.MODID, version = Electrostatics.VERSION, dependencies = "required-after:kjlib")
 public class Electrostatics
 {
     public static final String MODID = "electrostatics";

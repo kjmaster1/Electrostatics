@@ -1,6 +1,7 @@
 package com.kjmaster.electrostatics.item;
 
 import com.kjmaster.electrostatics.Electrostatics;
+import com.kjmaster.kjlib.common.items.ItemBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -27,8 +28,8 @@ public class ModItems {
 
     public static void registerModels() {
         treeTap.registerItemModel();
-        resin.registerItemModel();
-        rubber.registerItemModel();
+        Electrostatics.proxy.registerItemRenderer(resin, 0, "resin");
+        Electrostatics.proxy.registerItemRenderer(rubber, 0, "rubber");
         rubberBoots.registerItemModel();
     }
 }
