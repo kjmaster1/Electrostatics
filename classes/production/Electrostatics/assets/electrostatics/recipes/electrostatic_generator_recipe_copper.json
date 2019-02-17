@@ -3,6 +3,13 @@
 		"item": "electrostatics:electrostatic_generator",
 		"data": 0
 	},
+	"conditions": [
+		{
+			"type": "electrostatics:ore_exists",
+			"ore": "ingotCopper",
+			"flipped": false
+		}
+	],
 	"pattern": [
 		"ibi",
 		"rfr",

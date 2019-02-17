@@ -14,7 +14,7 @@ public class ModItems {
     public static ItemBase rubber = new ItemBase("rubber", Electrostatics.electrostaticTab, 64);
     private static ItemTreeTap treeTap = new ItemTreeTap(Item.ToolMaterial.IRON, ItemTreeTap.effectiveBlocks, "tree_tap", 1, Electrostatics.electrostaticTab);
     static ItemBase resin = new ItemBase("resin", Electrostatics.electrostaticTab, 64);
-    static ItemArmor rubberBoots = new ItemArmor(Electrostatics.rubberArmorMaterial, EntityEquipmentSlot.FEET, "rubber_boots");
+    public static ItemArmor rubberBoots = new ItemArmor(Electrostatics.rubberArmorMaterial, EntityEquipmentSlot.FEET, "rubber_boots");
 
     public static void register(IForgeRegistry<Item> registry) {
         registry.registerAll(

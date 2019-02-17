@@ -1,0 +1,5 @@
+{
+	"conditions": {
+		"ore_exists": "com.kjmaster.electrostatics.crafting.OreExistsCondition"
+	}
+}

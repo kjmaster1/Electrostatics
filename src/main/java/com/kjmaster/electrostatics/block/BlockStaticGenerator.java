@@ -30,6 +30,7 @@ public class BlockStaticGenerator extends BlockBase implements ITileEntityProvid
                                 String tool, int harvest) {
         super(name, material, tabs, hardness, resistance, tool, harvest);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        this.name = name;
     }
 
     @Override
@@ -75,6 +76,6 @@ public class BlockStaticGenerator extends BlockBase implements ITileEntityProvid
     }
 
     Item createItemBlock() {
-        return new ItemBlock(this).setRegistryName(getRegistryName());
+        return new ItemBlock(this).setRegistryName(name);
     }
 }

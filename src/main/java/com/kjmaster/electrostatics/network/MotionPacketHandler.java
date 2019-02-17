@@ -4,6 +4,7 @@ import com.kjmaster.electrostatics.Electrostatics;
 import com.kjmaster.electrostatics.block.tile.EnergyStorage;
 import com.kjmaster.electrostatics.block.tile.TileStaticGenerator;
 import com.kjmaster.electrostatics.config.ConfigHandler;
+import com.kjmaster.kjlib.KJLib;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +21,7 @@ public class MotionPacketHandler implements IMessageHandler<ServerMotionPacket, 
     @Override
     public IMessage onMessage(ServerMotionPacket message, MessageContext ctx) {
 
-        Electrostatics.proxy.getThreadFromContext(ctx).addScheduledTask(new Runnable() {
+        KJLib.proxy.getThreadFromContext(ctx).addScheduledTask(new Runnable() {
             @Override
             public void run() {
                 processMessage(message, ctx);
@@ -33,7 +34,7 @@ public class MotionPacketHandler implements IMessageHandler<ServerMotionPacket, 
 
         int motionX = message.motionX;
         int motionY = message.motionY;
-        EntityPlayer player = Electrostatics.proxy.getPlayerEntity(ctx);
+        EntityPlayer player = KJLib.proxy.getPlayerEntity(ctx);
         World world = player.world;
         double x = player.posX;
         double y = player.posY;

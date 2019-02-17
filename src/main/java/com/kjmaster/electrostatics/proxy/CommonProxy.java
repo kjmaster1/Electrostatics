@@ -1,10 +1,13 @@
 package com.kjmaster.electrostatics.proxy;
 
 import com.kjmaster.electrostatics.Electrostatics;
+import com.kjmaster.electrostatics.block.tile.TileStaticAreaGenerator;
 import com.kjmaster.electrostatics.block.tile.TileStaticGenerator;
 import com.kjmaster.electrostatics.item.ModItems;
 import com.kjmaster.electrostatics.network.MotionPacketHandler;
 import com.kjmaster.electrostatics.network.ServerMotionPacket;
+import com.kjmaster.electrostatics.network.StaticAreaGeneratorHandler;
+import com.kjmaster.electrostatics.network.StaticAreaGeneratorPacket;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.IThreadListener;
@@ -19,28 +22,15 @@ public class CommonProxy {
 
     public void registerTileEntities() {
         GameRegistry.registerTileEntity(TileStaticGenerator.class, Electrostatics.MODID + ":tile_static_generator");
+        GameRegistry.registerTileEntity(TileStaticAreaGenerator.class, Electrostatics.MODID + "tile_static_area_generator");
     }
 
     public void registerPackets() {
         Electrostatics.INSTANCE.registerMessage(MotionPacketHandler.class, ServerMotionPacket.class, 1, Side.SERVER);
+        Electrostatics.INSTANCE.registerMessage(StaticAreaGeneratorHandler.class, StaticAreaGeneratorPacket.class, 2, Side.SERVER);
     }
 
     public void registerOreDic() {
         OreDictionary.registerOre("itemRubber", ModItems.rubber);
-    }
-
-    /**
-     * Returns a side-appropriate EntityPlayer for use during message handling
-     */
-    public EntityPlayer getPlayerEntity(MessageContext ctx) {
-        return ctx.getServerHandler().player;
-    }
-
-    /**
-     * Returns the current thread based on side during message handling,
-     * used for ensuring that the message is being handled by the main thread
-     */
-    public IThreadListener getThreadFromContext(MessageContext ctx) {
-        return ctx.getServerHandler().player.getServer();
     }
 }

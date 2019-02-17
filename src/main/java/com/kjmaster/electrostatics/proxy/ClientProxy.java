@@ -18,14 +18,4 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(item, meta,
                 new ModelResourceLocation(Electrostatics.MODID + ":" + id, "inventory"));
     }
-
-    @Override
-    public EntityPlayer getPlayerEntity(MessageContext ctx) {
-        return (ctx.side.isClient() ? Minecraft.getMinecraft().player : super.getPlayerEntity(ctx));
-    }
-
-    @Override
-    public IThreadListener getThreadFromContext(MessageContext ctx) {
-        return (ctx.side.isClient() ? Minecraft.getMinecraft() : super.getThreadFromContext(ctx));
-    }
 }
